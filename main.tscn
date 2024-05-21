@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciiv7rqwb67la"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_651uu"]
+[ext_resource type="PackedScene" uid="uid://di4kdono7badv" path="res://background/background.tscn" id="1_frfw1"]
+[ext_resource type="PackedScene" uid="uid://gttpe8keyetl" path="res://dinoplayer/player.tscn" id="2_vndkh"]
+[ext_resource type="PackedScene" uid="uid://cog0il8ngtf1u" path="res://floor/piso.tscn" id="3_n60sf"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(262, 0)
+script = ExtResource("1_651uu")
+
+[node name="Background" parent="." instance=ExtResource("1_frfw1")]
+
+[node name="Piso" parent="." instance=ExtResource("3_n60sf")]
+position = Vector2(-260, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_vndkh")]
+position = Vector2(-122, 521)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+limit_smoothed = true
