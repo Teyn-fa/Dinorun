@@ -21,6 +21,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			$AudioStreamPlayer2D.play()
 			velocity.y = JUMP_VELOCITY
-		velocity.x = SPEED
+		velocity.x = SPEED + GHUD.score
 			# esto es esencial recuérdalo
 		move_and_slide()
