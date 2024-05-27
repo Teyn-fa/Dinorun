@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dauuisuxbavdv"]
+
+[ext_resource type="Texture2D" uid="uid://cbmp3k5fanolb" path="res://icon.svg" id="1_5p2vy"]
+[ext_resource type="Script" path="res://mob/mob.gd" id="1_23lvj"]
+[ext_resource type="Texture2D" uid="uid://b22un54rangn5" path="res://mob/fuego.png" id="3_jstxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfdd"]
+size = Vector2(92, 114.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbkeg"]
+size = Vector2(126, 130)
+
+[node name="Mob" type="Area2D"]
+script = ExtResource("1_23lvj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-11, -11)
+
+[node name="SquareCollision2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-60, -60.75)
+shape = SubResource("RectangleShape2D_6rfdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="SquareCollision2"]
+position = Vector2(-7.62939e-06, -0.440376)
+scale = Vector2(0.192469, 0.192469)
+texture = ExtResource("3_jstxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-63, -66)
+shape = SubResource("RectangleShape2D_wbkeg")
+debug_color = Color(0.851958, 0.302563, 0.556176, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0, 1)
+texture = ExtResource("1_5p2vy")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
