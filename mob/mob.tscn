@@ -13,27 +13,32 @@ size = Vector2(126, 130)
 [node name="Mob" type="Area2D"]
 script = ExtResource("1_23lvj")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-11, -11)
-
-[node name="SquareCollision2" type="CollisionShape2D" parent="."]
+[node name="FuegoSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-60, -60.75)
-shape = SubResource("RectangleShape2D_6rfdd")
-
-[node name="Sprite2D" type="Sprite2D" parent="SquareCollision2"]
-position = Vector2(-7.62939e-06, -0.440376)
+position = Vector2(-60, -61.1904)
 scale = Vector2(0.192469, 0.192469)
 texture = ExtResource("3_jstxe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="FuegoCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-60, -60.75)
+shape = SubResource("RectangleShape2D_6rfdd")
+disabled = true
+
+[node name="BlueSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-63, -65)
+texture = ExtResource("1_5p2vy")
+
+[node name="BlueCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-63, -66)
 shape = SubResource("RectangleShape2D_wbkeg")
+disabled = true
 debug_color = Color(0.851958, 0.302563, 0.556176, 0.42)
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(0, 1)
-texture = ExtResource("1_5p2vy")
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-11, -11)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
