@@ -3,16 +3,21 @@ extends Area2D
 signal hit
 
 func _ready():
-	var collisions = [$FuegoCollision,$BlueCollision]
-	var sprites = [$FuegoSprite,$BlueSprite]
+	GHUD.mob_counter = GHUD.mob_counter + 1
+	var collisions = [$FuegoCollision,$BlueCollision,$asahiCol, $TanakaCol, $NishinoyaCol, $sugaCollision, $DaichiCol]
+	var sprites = [$FuegoSprite,$BlueSprite, $asahiSprite, $TanakaSprite, $NIshinoyaSprite, $SugaSprite, $DaichiSprite]
 	var random_int = randi() % collisions.size()
 	var selected_collision = collisions[random_int]
 	var selected_sprite = sprites[random_int]
 	selected_collision.disabled = false
 	selected_collision.visible = true
+	selected_sprite.visible = true
+	
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	if GHUD.mob_counter > 0:
+		GHUD.mob_counter = GHUD.mob_counter - 1
 	queue_free()
 
 func _on_body_entered(body):

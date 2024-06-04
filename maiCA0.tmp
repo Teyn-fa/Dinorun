@@ -14,10 +14,10 @@ mob_scene = ExtResource("2_fjpsf")
 [node name="Background" parent="." instance=ExtResource("1_frfw1")]
 
 [node name="Piso" parent="." instance=ExtResource("3_n60sf")]
-position = Vector2(-260, -25)
+position = Vector2(-260, 4)
 
 [node name="Player" parent="." instance=ExtResource("2_vndkh")]
-position = Vector2(-122, 489)
+position = Vector2(-122, 521)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(437, -88)

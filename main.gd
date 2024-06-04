@@ -17,16 +17,19 @@ func new_game():
 	$MobTimer.start()
 	
 func game_over():
-		GHUD.update_high_score_label()
+	GHUD.mob_counter = 0
+	$MobTimer.stop()
+	GHUD.update_high_score_label()
 
 func _process(delta):
 	$Piso.position.x = $Player.position.x - 150
 
 
 func _on_mob_timer_timeout():
-	var mob = mob_scene.instantiate()
-	mob.position.x = $Player.position.x + 1500
-	mob.position.y = 640
-	add_child(mob)
-	mob.hit.connect(game_over)
-	$MobTimer.wait_time = 1 
+	if GHUD.mob_counter < 2:
+		var mob = mob_scene.instantiate()
+		mob.position.x = $Player.position.x + 1500
+		mob.position.y = 640
+		add_child(mob)
+		mob.hit.connect(game_over)
+	
