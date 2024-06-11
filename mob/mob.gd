@@ -4,14 +4,29 @@ signal hit
 
 func _ready():
 	GHUD.mob_counter = GHUD.mob_counter + 1
-	var collisions = [$FuegoCollision,$BlueCollision,$asahiCol, $TanakaCol, $NishinoyaCol, $sugaCollision, $DaichiCol]
-	var sprites = [$FuegoSprite,$BlueSprite, $asahiSprite, $TanakaSprite, $NIshinoyaSprite, $SugaSprite, $DaichiSprite]
+	var collisions = [
+		$FuegoCollision,
+		$RocaCol2,
+		$asahiCol,
+		$TanakaCol,
+		$NishinoyaCol,
+		$sugaCollision
+	]
+	var sprites = [
+		$FuegoSprite,
+		$RocaSprite2,
+		$asahiSprite,
+		$TanakaSprite,
+		$NIshinoyaSprite,
+		$SugaSprite
+	]
 	var random_int = randi() % collisions.size()
+	print(random_int)
 	var selected_collision = collisions[random_int]
 	var selected_sprite = sprites[random_int]
 	selected_collision.disabled = false
 	selected_collision.visible = true
-	selected_sprite.visible = true
+	selected_sprite.visible = true 
 	
 
 

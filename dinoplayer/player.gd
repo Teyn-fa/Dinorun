@@ -5,7 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var GRAVITY = 2500
+var GRAVITY = 2300
 
 
 func _physics_process(delta):
